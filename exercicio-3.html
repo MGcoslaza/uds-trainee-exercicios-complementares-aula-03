@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exercício 3</title>
+</head>
+<body>
+    <p>Vamos criar um gerador de cartão de visita. </p>
+    <p>ok O usuário deve preencher um formulário com os campos nome, telefone e endereço.</p>
+    <p>ok Ao enviar o formulário deve-se apresentar uma div formatada como um cartão de visita apresentando as informações preenchidas previamente.</p>
+    <style>
+        .cartao{
+            background:red;
+            width:250px;
+            height:125px;
+            margin:5px;
+        }
+    </style>
+        <div id="formulario">
+            <input type="text" id="nome" placeholder="Nome Completo"/><br/>
+            <input type="text" id="telefone" placeholder="telefone"/><br/>
+            <input type="text" id="endereco" placeholder="endereço"/><br/>
+        </div>
+
+        <div id="cartao">
+            <div class="cartao">
+                <p id="lNome"></p>
+                <p id="lTelefone"></p>
+                <p id="lEndereco"></p>
+            </div>
+        </div>
+        <input name="iButton" id="botao" value="Enviar" type="button" />
+    <script>
+        document.getElementById("cartao").style.display = "none";
+
+        var nome = document.getElementById ("nome");
+        var telefone = document.getElementById ("telefone");
+        var endereco = document.getElementById ("endereco");
+
+        document.getElementById ("botao").addEventListener("click", aparecerCartao);
+        function aparecerCartao(){
+            //Muda o nome do botão
+            mudaNomeDoBotao();
+
+            if(document.getElementById("cartao").style.display == "none"){
+                //Mostra o cartão
+                document.getElementById("cartao").style.display = "";
+                //Esconde o form
+                document.getElementById("formulario").style.display = "none";
+                //Preenche os dados no cartão
+                document.getElementById("lNome").innerHTML = nome.value;
+                document.getElementById("lTelefone").innerHTML = telefone.value;
+                document.getElementById("lEndereco").innerHTML = endereco.value;
+                //Limpa os dados do formulário
+                limpaDadosForm();
+            }
+            else{
+                //Esconde o cartão
+                document.getElementById("cartao").style.display = "none";
+                //Mostra o form
+                document.getElementById("formulario").style.display = "";
+                //Limpa os dados do cartão
+                limpaDadosCartao();
+            }
+        }
+        function limpaDadosForm(){
+            document.getElementById("nome").value = "";
+            document.getElementById("telefone").value = "";
+            document.getElementById("endereco").value = "";
+        }
+
+        function limpaDadosCartao(){
+            document.getElementById("lNome").innerHTML = "";
+            document.getElementById("lTelefone").innerHTML = "";
+            document.getElementById("lEndereco").innerHTML = "";
+        }
+        function mudaNomeDoBotao(){
+            var nomeAtual = document.getElementById("botao");
+
+            if(nomeAtual.value == "Enviar"){
+                nomeAtual.value = "Preencher Novamente";
+            }else{
+                nomeAtual.value = "Enviar";
+            }
+        }
+    </script>
+</body>
+</html>

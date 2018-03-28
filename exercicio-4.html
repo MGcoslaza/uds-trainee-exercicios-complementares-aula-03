@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exercício 4</title>
+    
+</head>
+<body>
+    <p>ok  Crie um formulário com 10 questões de verdadeiro ou falso. </p>
+    <p>ok  O usuário deve preencher um formulário com as questões, cada questão deve ter dois radio buttons com as respostas possíveis. </p>
+    <p>ok  Ao final do formulário deve existir um botão enviar. </p>
+    <p>ok  Ao clicar no botão deve-se validar as questões, para cada resposta preenchida corretamente deve-se somar 1 ponto, </p>
+    <p>ok  para cada resposta errada ou em branco deve-se somar 0 pontos, e então apresentar a pontuação ao usuário.</p>
+            <div name="formulario">
+            <p>Questão 01</p>
+                <input type="radio" name="q0" id="v0" value="v" />Verdadeiro
+                <input type="radio" name="q0" id="f0" value="f" />Falso
+            <p>Questão 02</p>
+                <input type="radio" name="q1" id="v1" value="v"/>Verdadeiro
+                <input type="radio" name="q1" id="f1" value="f"/>Falso
+            <p>Questão 03</p>
+                <input type="radio" name="q2" id="v2" value="v"/>Verdadeiro
+                <input type="radio" name="q2" id="f2" value="f"/>Falso
+            <p>Questão 04</p>
+                <input type="radio" name="q3" id="v3" value="v"/>Verdadeiro
+                <input type="radio" name="q3" id="f3" value="f"/>Falso
+            <p>Questão 05</p>
+                <input type="radio" name="q4" id="v4" value="v"/>Verdadeiro
+                <input type="radio" name="q4" id="f4" value="f"/>Falso
+            <p>Questão 06</p>
+                <input type="radio" name="q5" id="v5" value="v"/>Verdadeiro
+                <input type="radio" name="q5" id="f5" value="f"/>Falso
+            <p>Questão 07</p>
+                <input type="radio" name="q6" id="v6" value="v"/>Verdadeiro
+                <input type="radio" name="q6" id="f6" value="f"/>Falso
+            <p>Questão 08</p>
+                <input type="radio" name="q7" id="v7" value="v"/>Verdadeiro
+                <input type="radio" name="q7" id="f7" value="f"/>Falso
+            <p>Questão 09</p>
+                <input type="radio" name="q8" id="v8" value="v"/>Verdadeiro
+                <input type="radio" name="q8" id="f8" value="f"/>Falso
+            <p>Questão 10</p>
+                <input type="radio" name="q9" id="v9" value="v"/>Verdadeiro
+                <input type="radio" name="q9" id="f9" value="f"/>Falso
+            <p><input name="iButton" id="botao" value="enviar" type="button" /></p>
+        </div>
+        <script>
+            document.getElementById("botao").addEventListener("click", enviar);
+            function enviar(){
+                var total = 0;
+                var gabarito = ["f", "v", "v", "v", "f", "v", "v", "f", "f", "v"]
+                for (var i = 0; i < 10; i++) {
+                    var radioV = document.getElementById("v" + i);
+                    var radioF = document.getElementById("f" + i);
+                    
+                    if ((radioV.checked && gabarito[i] == "v") || (radioF.checked && gabarito[i] == "f")) {
+                        total = total + 1;
+                    }
+                    else{
+                        total = total + 0;
+                    }
+                }
+                alert("Pontuação: " + total);
+            }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<meta charset="utf-8">
+<tite>Exercício 2</tite>
+
+<head>
+
+    <body>
+        <p>  ok Crie um arquivo html com 10 divs e 1 botão. 
+            ok As divs devem ser circulos vermelhos posicionadas lado a lado via flex-box. 
+            ok Ao clicar no botão o sistema deve calcular um número aleatório de 1 a 10 e pintar a div correspondente de azul. 
+            ok Ao clicar novamente, o sistema deve voltar todas as divs para vermelho e realizar a operação anterior novamente.</p>
+
+          <style>
+            .circulo{
+                background:red;
+                width:100px;
+                height:100px;
+                margin:5px;
+                border-radius:50%;
+                -moz-border-radius:50%;
+                -webkit-border-radius:50%;
+            }
+
+            .circulos{
+                display:inline-flex;
+            }
+          </style>
+            <div class="circulos" id="circulos">
+            <div class="circulo" id="circulo1"></div>
+            <div class="circulo" id="circulo2"></div>
+            <div class="circulo" id="circulo3"></div>
+            <div class="circulo" id="circulo4"></div>
+            <div class="circulo" id="circulo5"></div>
+            <div class="circulo" id="circulo6"></div>
+            <div class="circulo" id="circulo7"></div>
+            <div class="circulo" id="circulo8"></div>
+            <div class="circulo" id="circulo9"></div>
+            <div class="circulo" id="circulo10"></div>
+        </div>
+        <p></p>
+        <input type="button" id="botaoLigaDesliga" value="ligar/desligar">
+        <script>
+            document.getElementById ("botaoLigaDesliga").addEventListener("click", selecionarNumero);
+            function selecionarNumero(){
+                voltaParaVermelho();
+                var n = Math.floor(Math.random() * 10 + 1);
+                console.log(n);
+                var circulo = document.getElementById("circulo"+n);
+                circulo.style.display='block';
+                circulo.style.background="blue";
+                circulo.style.borderBottom = '1px solid #fff';
+            }
+
+             function voltaParaVermelho(){
+                for (var n = 1; n <= 10; n++) {
+                    var circulo = document.getElementById("circulo" + n);
+                    circulo.style.display = 'block';
+                    circulo.style.background = "red";
+                    circulo.style.borderBottom = '1px solid #fff';
+                }
+            }
+        </script>
+    </body>
+</head>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<meta charset="utf-8">
+<tite>Exercício 1</tite>
+
+<head>
+    <body>
+        <p> Precisamos criar um gerador de declarações.
+            O usuário preenche um formulário e devolvemos a ele uma declaração preenchida.
+            Para isso você deve adicionar 4 campos de texto ( nome completo, rg, cpf e cidade ) em um arquivo html e estiliza-los
+            conforme achar necessário. 
+            Sua aplicação deve pegar os dados informados neste campo e devolver o seguinte texto como conteúdo da página: 
+            "Eu, {nome-completo}, portador do rg {rg} e do cpf {cpf}, declaro estar participando do trainee da uds.";
+             após este texto apresentar a cidade e a data atual escrita por extenso.</p>
+             <form id="formulario">
+                    <input type="text" id="nome" placeholder="Nome Completo"/><br/>
+                    <input type="text" id="rg" placeholder="RG" maxlength="14"/><br/>
+                    <input type="text" id="cpf" placeholder="CPF" maxlength="11"/><br/>
+                    <input type="text" id="cidade" placeholder="Cidade"/><br/>
+                    <input name="iButton" id="iButton" value="Enviar" type="button" onclick="informacoesDoCandidato()" />
+             </form>
+        <script>
+            function retornarInformacoesDoCandidato(){
+                var nome = document.getElementById ("nome");
+                var rg = document.getElementById ("rg");
+                var cpf = document.getElementById ("cpf");
+                var cidade = document.getElementById ("cidade");
+
+                return ("Eu, " + nome.value + ", portador do rg " + rg.value + " e do cpf " + cpf.value + ", declaro estar participando do Trainee da UDS.");
+            } 
+            function informacoesDoCandidato(){
+                console.log('Funciona como vc espera:');
+                console.log(retornarInformacoesDoCandidato());
+                alert(retornarInformacoesDoCandidato());
+
+                console.log('Não funciona como vc espera (está certo, mas não é o q vc quer):');
+                console.log(retornarInformacoesDoCandidato);
+            }
+        </script>
+    </body>
+</head>
+</html>
